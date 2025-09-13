@@ -1,0 +1,86 @@
+/* General Styles */
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #000; /* Dark background */
+    color: #ddd; /* Light text for contrast */
+}
+
+.contact-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e1e1e; /* Dark gray background */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.contact-section h2 {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #FFD700; /* Gold color for headings */
+    text-align: center;
+}
+
+.contact-section p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #bbb; /* Light gray for better readability */
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #ccc; /* Light color for labels */
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #555; /* Subtle border for input fields */
+    border-radius: 5px;
+    background-color: #333; /* Dark input background */
+    color: #fff; /* Light text */
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+button {
+    background-color: #FFD700; /* Gold color for the button */
+    color: #000; /* Dark text */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #FFB800; /* Brighter gold on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .contact-section {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+}

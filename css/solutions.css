@@ -1,0 +1,619 @@
+/* Color Variables */
+:root {
+    --black: #000000;
+    --off-white: #e0e0e0;
+    --light-grey: #dadada;
+    --logo-color: #deddff;
+    --copper: #b87333;
+    --silver: #c0c0c0;
+    --deep-blue: #1e90ff;
+      --brand:#e7b44b; --brand-2:#5cc8ff; --stroke:rgba(255,255,255,.08);
+}
+
+/* General Styles */
+html { background: var(--bg); scroll-padding-top: 55; }
+html, body { height: 100%; }
+body {
+  margin: 0; color: var(--text);
+  font-family: 'Lato', sans-serif;
+  line-height: 1.35;
+  min-height: 100dvh;
+  padding-top: 55px;        
+  position: relative;               
+}
+
+
+.btn{padding:10px 16px; border-radius:999px; border:2px solid var(--stroke);
+     background:rgba(255,255,255,.02); color:var(--text); font-weight:600; text-decoration:none; display:inline-block}
+
+     .btn:hover{transform:translateY(-1px)}
+
+.btn.gold{background:linear-gradient(135deg, var(--brand), #ffd98a); color:#1a1a1a; border:none}
+
+
+
+/* Solutions Section */
+.solutions-section {
+    padding: 60px 0;
+    background: linear-gradient(180deg, #000 0%, #1a1a2e 40%, #e6f7ff 80%, #fff 100%);
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5em;
+    font-family: 'Playfair Display', serif;
+    color: #FFB800; /* Matches gold tone */
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-item {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 30px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    font-size: 2.5em;
+    color: #FF8C00; /* Orangey tone */
+    margin-bottom: 15px;
+}
+
+.service-item h2 {
+    font-size: 1.8em;
+    margin: 10px 0;
+    font-family: 'Lato', sans-serif;
+    color: #333;
+}
+
+.service-item p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Base Footer Styles */
+footer {
+    background-color: var(--black);
+    color: var(--off-white);
+    padding: 20px 40px;
+    text-align: center;
+    border-top: 1px solid var(--silver);
+    font-size: 80em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer a {
+    color: var(--copper);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--deep-blue); /* Adds a slight color change on hover */
+}
+
+/* Footer Content Container */
+.footer-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Footer Links Styling */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links li {
+    margin: 0 5px;
+}
+
+.footer-links a {
+    font-size: 0.9em;
+}
+
+/* Hero Section with Video */
+.hero {
+    position: relative;
+    height: 90vh;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.hero-text {
+    position: absolute;
+    top: 25%;
+    left: 20px;
+    z-index: 2;
+    max-width: 65%; /* Limit the width to make sure text stays on the left side */
+    padding: 20px;
+    background-color: rgba(0, 0, 66, 0.5); /* Dark blue background with transparency */
+    border-radius: 15px; /* Rounded corners */
+    text-align: left;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    box-shadow: 0px 0px 10px rgba(247, 247, 255, 0.5); /* Blue glow effect */
+}
+
+.hero-text h1 {
+    font-size: 3em;
+    margin: 0;
+    text-align: left;
+}
+
+.hero-text p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3em;
+    margin-top: 10px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+
+.cta-link {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 10px 20px;
+    background-color: #FFB800;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-link.secondary {
+    color: #FFB800; /* Yellow text */
+    background-color: #007BFF; /* Blue for the secondary CTA */
+}
+
+.cta-link:hover {
+    background-color: #e6a300;
+}
+
+.cta-link.secondary:hover {
+    background-color: #0056b3; /* Darker blue for hover */
+}
+
+.hero-text h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #fff; /* or another suitable color */
+    text-align: left;
+}
+
+.cta-container {
+    margin-top: 10px;
+}
+
+/* General video styling for consistent size and cropping */
+.solution-video, .ai-investment-video, .bond-creation-video {
+    width: 100%;
+    height: 400px; /* Fixed height for consistency */
+    object-fit: cover; /* Crop video if necessary to fit the size */
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Bond Creation Section */
+.bond-creation-section {
+    padding: 40px;
+    background-color: #000000;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+.bond-creation-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The shared container for both text and video */
+.bond-creation-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 67, 0.8); /* Dark blue transparent background */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Unified shadow */
+    width: 100%;
+    max-width: 1200px; /* Ensure a max width */
+    flex-wrap: wrap;
+}
+
+/* Text area inside the card */
+.bond-creation-text {
+    flex: 1 1 50%;
+    color: white;
+    padding-right: 20px; /* Space between text and video */
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* Video area inside the card */
+.bond-creation-video-wrapper {
+    flex: 1 1 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bond-creation-video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure responsiveness on smaller screens */
+@media (max-width: 768px) {
+    .bond-creation-card {
+        flex-direction: column; /* Stack text and video vertically on small screens */
+        text-align: center;
+    }
+
+    .bond-creation-text, .bond-creation-video-wrapper {
+        width: 100%;
+        padding: 0;
+    }
+
+    .bond-creation-video {
+        margin-top: 20px;
+    }
+}
+
+
+
+/* AI Investment Section */
+.ai-investment-section {
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 0px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+.ai-investment-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Shared container for text and video */
+.ai-investment-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 50, 0.8); /* Dark blue transparent background */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+/* Video content inside the card */
+.ai-investment-video-wrapper {
+    flex: 1 1 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ai-investment-video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Text content inside the card */
+.ai-investment-text {
+    flex: 1 1 50%;
+    color: white;
+    padding-left: 20px; /* Space between video and text */
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* Ensure responsiveness on smaller screens */
+@media (max-width: 768px) {
+    .ai-investment-card {
+        flex-direction: column; /* Stack video and text vertically on small screens */
+        text-align: center;
+    }
+
+    .ai-investment-video-wrapper, .ai-investment-text {
+        width: 100%;
+        padding: 0;
+    }
+
+    .ai-investment-video {
+        margin-bottom: 20px; /* Space between video and text on small screens */
+    }
+}
+
+/* Investment Opportunity Section */
+.investment-opportunity-section {
+    padding: 40px;
+    background-color: #000; /* Black background for the section */
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.investment-opportunity-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Shared container for text and video */
+.investment-opportunity-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 138, 0.8); /* Dark blue transparent background */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
+
+/* Text content */
+.investment-opportunity-text {
+    flex: 1 1 50%;
+    color: white;
+    padding-right: 20px;
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* Video content */
+.investment-opportunity-video-wrapper {
+    flex: 1 1 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.investment-opportunity-video {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Adds consistent shadow */
+}
+
+/* Responsive handling for smaller screens */
+@media (max-width: 768px) {
+    .investment-opportunity-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .investment-opportunity-video-wrapper, .investment-opportunity-text {
+        width: 100%;
+        padding: 0;
+    }
+
+    .investment-opportunity-video {
+        margin-bottom: 20px; /* Space between video and text on small screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 600px; /* Adjust height for smaller screens */
+    }
+
+    .hero-text {
+        top: 20%; /* Adjust position for smaller screens */
+        max-width: 90%; /* Increase width to fit more text */
+        padding: 15px;
+        font-size: 0.9em; /* Reduce font size */
+    }
+
+    .hero-text h1 {
+        font-size: 2em;
+    }
+
+    .hero-text p {
+        font-size: 1em;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 1.5em; /* Further reduce for smaller screens */
+    }
+
+    .hero-text p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    .bond-creation-card {
+        flex-direction: column;
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .bond-creation-text, .bond-creation-video-wrapper {
+        width: 100%; /* Ensure full width on stack */
+        padding: 0;
+    }
+
+    .bond-creation-video {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bond-creation-text h2 {
+        font-size: 1.5em; /* Adjust for smaller screens */
+    }
+
+    .bond-creation-text p {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+}
+
+@media (max-width: 768px) {
+    .ai-investment-card {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .ai-investment-video-wrapper, .ai-investment-text {
+        width: 100%;
+        padding: 0;
+    }
+
+    .ai-investment-video {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ai-investment-text h2 {
+        font-size: 1.5em;
+    }
+
+    .ai-investment-text p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    .investment-opportunity-card {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .investment-opportunity-text, .investment-opportunity-video-wrapper {
+        width: 100%;
+        padding: 0;
+    }
+
+    .investment-opportunity-video {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .investment-opportunity-text h2 {
+        font-size: 1.5em;
+    }
+
+    .investment-opportunity-text p {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+}
+
+
+/* Small screens (max-width: 600px) */
+@media (max-width: 600px) {
+    footer {
+        padding: 15px 20px;
+        font-size: 0.50em;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Medium screens (600px to 992px) */
+@media (min-width: 600px) and (max-width: 992px) {
+    footer {
+        padding: 20px 30px;
+        font-size: 0.70em;
+    }
+
+    .footer-content {
+        justify-content: space-around;
+    }
+}
+
+/* Large screens (992px and up) */
+@media (min-width: 992px) {
+    footer {
+        padding: 25px 50px;
+        font-size: 0.80em;
+    }
+
+    .footer-content {
+        justify-content: space-between;
+    }
+}
+
+/* Extra large screens (1200px and up) */
+@media (min-width: 1200px) {
+    footer {
+        padding: 30px 60px;
+    }
+
+    .footer-content {
+        max-width: 1400px;
+    }
+}

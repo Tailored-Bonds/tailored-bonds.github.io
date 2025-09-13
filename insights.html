@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights | Tailored Bonds</title>
+    <link rel="stylesheet" href="css/insights.css">    
+    <link rel="stylesheet" href="css/navBar.css">
+
+    <script type="module" src="js/navBar.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">
+            <a href="index.html">Tailored Bonds</a>
+            <div class="subtitle">Investor-First Bond Structuring</div>
+        </div>
+        
+        <div class="nav-menu-wrapper"></div>
+            <ul class="nav-menu-left">
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="who-we-serve.html">Who We Serve</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+            <ul class="nav-menu-right">
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact-meeting.html" class="btn gold">Book a Call</a></li>
+            </ul>
+        </div>
+         <button class="hamburger" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+
+    <!-- Insights Header -->
+    <header class="insights-header">
+        <h1>Insights</h1>
+        <p>Stay updated with the latest financial insights and industry trends from Worldwide Holdings.</p>
+    </header>
+
+    <!-- Insights Posts Container -->
+    <div class="posts-container">
+        <!-- Posts will be dynamically loaded here -->
+    </div>
+
+    <!-- Footer -->
+<footer>
+  <p>© 2025 Tailored Bonds. All rights reserved. | <a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+    <!-- JavaScript to Load Posts Dynamically -->
+    <script>
+    async function fetchPosts() {
+        try {
+            const response = await fetch('/posts');  // Fetch posts from the API
+            const posts = await response.json();  // Parse JSON response
+
+            const postsContainer = document.querySelector('.posts-container');
+            postsContainer.innerHTML = '';  // Clear any existing content
+
+            posts.forEach(post => {
+                const postCard = document.createElement('div');
+                postCard.classList.add('post-card');
+
+                postCard.innerHTML = `
+                    <img src="${post.image_url || 'assets/images/default-post-image.png'}" alt="Post Image"> 
+                    <div class="post-content">
+                        <h2>${post.title}</h2>
+                        <p class="date">Published on: ${new Date(post.created_at).toLocaleDateString()}</p>
+                        <p class="excerpt">${post.body.slice(0, 100)}...</p>
+                        <a href="/post.html?post_id=${post.id}" class="read-more">Read More</a>
+                    </div>
+                `;
+                postsContainer.appendChild(postCard);
+            });
+        } catch (error) {
+            console.error('Error fetching posts:', error);
+        }
+    }
+
+    // Load posts when the page is loaded
+    document.addEventListener('DOMContentLoaded', fetchPosts);
+    </script>
+
+</body>
+</html>

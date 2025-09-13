@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Tailored Bonds</title>
+    
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/navBar.css">
+    <script type="module" src="js/navBar.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">
+            <a href="index.html">Tailored Bonds</a>
+            <div class="subtitle">Investor-First Bond Structuring</div>
+        </div>
+        
+        <div class="nav-menu-wrapper"></div>
+            <ul class="nav-menu-left">
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="who-we-serve.html">Who We Serve</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+            <ul class="nav-menu-right">
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact-meeting.html" class="btn gold">Book a Call</a></li>
+            </ul>
+        </div>
+         <button class="hamburger" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+    
+        <!-- Sub-Menu -->
+        <nav class="sub-menu">
+            <ul>
+                <li><a href="#" onclick="loadContent('values-iframe.html')">Our Values</a></li>
+                <li><a href="#" onclick="loadContent('venture-iframe.html')">Venture</a></li>
+           <!---     <li><a href="#" onclick="loadContent('iframe-Meet_our_chairman.html')">Meet Our Chairman</a></li> -->
+            <!--    <li><a href="#" onclick="loadContent('iframe-chairmans_office.html')">Chairmans' Office</a></li> -->
+            </ul>
+        </nav>
+    </div>
+    <!-- Iframe Section -->
+    <section class="iframe-section">
+        <iframe id="contentFrame" src="values-iframe.html" frameborder="0" width="100%" height="800px"></iframe>
+    </section>
+
+    <!-- Footer -->
+<footer>
+  <p>© 2025 Tailored Bonds. All rights reserved. | <a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+
+
+    <!-- JavaScript to Load Iframe Content -->
+    <script>
+        function loadContent(page) {
+            document.getElementById('contentFrame').src = page;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights | Tailored Bonds</title>
+    <link rel="stylesheet" href="css/post.css">    
+    <link rel="stylesheet" href="css/navBar.css">
+
+    <script type="module" src="js/navBar.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">Worldwide Holdings</a>
+                <p class="subtitle">Est. 2012</p>
+            </div>
+            <div class="nav-menu-wrapper"></div>
+                <ul class="nav-menu-left">
+                    <li><a href="solutions.html">Solutions</a></li>
+                    <li><a href="who-we-serve.html">Who We Serve</a></li>
+                    <li><a href="insights.html">Insights</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+                <ul class="nav-menu-right">
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact-meeting.html" class="btn gold">Book a Call</a></li>
+                </ul>
+            </div>
+            <div class="hamburger">&#9776;</div>
+        </div>
+    </nav>
+
+    <!-- Post Content Section -->
+    <section class="post-container">
+        <h1 id="post-title">Loading...</h1>
+        <p id="post-date" class="post-date">Loading date...</p>
+        <div class="image-wrapper">
+            <img id="post-image" src="" alt="Post Image">
+        </div>
+        <div id="post-body" class="post-body">Loading content...</div>
+    </section>
+
+    <!-- JavaScript to Fetch Post Data -->
+    <script>
+    async function fetchPost() {
+        const postId = new URLSearchParams(window.location.search).get('post_id');
+        if (!postId) return;
+
+        try {
+            const response = await fetch(`/post/${postId}`);
+            const post = await response.json();
+
+            document.getElementById('post-title').textContent = post.title;
+            document.getElementById('post-date').textContent = `Published on: ${new Date(post.created_at).toLocaleDateString()}`;
+            document.getElementById('post-image').src = post.image_url || 'assets/images/default-post-image.png';
+            document.getElementById('post-body').innerHTML = post.body;
+        } catch (error) {
+            console.error('Error fetching post:', error);
+            document.getElementById('post-title').textContent = 'The post could not be loaded';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchPost);
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Worldwide Holdings Inc. All rights reserved. | <a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+
+</body>
+</html>

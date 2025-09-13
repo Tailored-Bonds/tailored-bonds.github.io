@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Phoenix I — 42‑Well Oil Redevelopment | Tailored Bonds</title>
+  <meta name="description" content="Project Phoenix I: 42-well redevelopment program with bond financing. Overview, area gallery, maps, timelines, downloads (PPM, Supplement)."/>
+    <link rel="preload" href="css/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <link rel="stylesheet" href="css/navBar.css">
+  <style>
+    :root{
+      --bg:#0b0e12;--panel:#121722;--text:#e6e9ef;--muted:#9aa4b2;--brand:#7cc4ff;--accent:#ffcc66;--ok:#32d095;--bad:#ff7a7a;
+      --line: rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+  
+
+    body {
+  margin: 0; color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  line-height: 1.35;
+  min-height: 100dvh;
+  padding-top: var(--nav-h);          /* content clears fixed navbar */
+  position: relative;                 /* anchor for gradient layer */
+}
+
+/* Gradient lives on a fixed layer to prevent “weird lines” */
+body::before{
+  content:"";
+  position: fixed; inset: 0; z-index: -1; pointer-events:none;
+  background:
+    radial-gradient(1200px 800px at 80% -10%, rgba(231,180,75,.15), transparent 60%),
+    radial-gradient(900px 700px at -10% 10%, rgba(92,200,255,.12), transparent 60%),
+    var(--bg);
+  background-repeat:no-repeat;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+    
+    
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1200px;margin:0 auto;padding:24px}
+    .header{position:sticky;top:0;background:linear-gradient(var(--bg),rgba(11,14,18,.8));backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--line);z-index:10}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#77c7ff,#d9e7ff);box-shadow:0 6px 20px rgba(124,196,255,.2)}
+    nav{display:flex;gap:20px;align-items:center}
+    nav a{color:var(--text);opacity:.85}
+    nav a.active, nav a:hover{opacity:1;color:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1.3fr .7fr;gap:28px;padding:30px 0}
+    .panel{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));border:1px solid var(--line);border-radius:18px;box-shadow:0 6px 30px rgba(0,0,0,.25);overflow:hidden}
+    .hero .media{min-height:260px;background:#0f141d url('assets/phoenix/hero.jpg') center/cover no-repeat;border-radius:18px}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .kpi{padding:16px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01))}
+    .kpi small{color:var(--muted)}
+    .kpi strong{font-size:22px;display:block;margin-top:4px}
+
+    .section{padding:28px 0}
+    .section h2{margin:0 0 12px;font-size:28px}
+    .muted{color:var(--muted)}
+
+    .grid{display:grid;gap:18px}
+    .grid.gallery{grid-template-columns:repeat(4,1fr)}
+    .grid.gallery img{width:100%;height:160px;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+
+    .facts{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    .facts .card{padding:16px}
+    .main_card{padding: 5px; border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01))}
+    .card{border:1px solid var(--line);border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01))}
+
+    .kv{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;margin:0;padding:0;list-style:none}
+    .kv li{display:flex;justify-content:space-between;gap:10px;padding:10px;border-bottom:1px dashed var(--line)}
+    .kv li span{color:var(--muted)}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:12px}
+    .badge.ok{border-color:rgba(50,208,149,.35);background:rgba(50,208,149,.08);color:#bff4de}
+    .badge.warn{border-color:rgba(255,204,102,.35);background:rgba(255,204,102,.08);color:#ffe6b3}
+
+    /* Wells directory */
+    .wells{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .well{padding:12px;border:1px solid var(--line);border-radius:12px}
+    .well h4{margin:0 0 6px}
+    .well .row{display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+
+    /* Map */
+    .map{height:360px;border-radius:16px;background:#0f141d url('assets/phoenix/area-map.jpg') center/cover no-repeat;border:1px solid var(--line)}
+
+    /* Timeline */
+    .timeline{position:relative;padding:8px 0 0 0}
+    .timeline:before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--line)}
+    .titem{margin-left:28px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;margin-bottom:10px;background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01))}
+
+    /* Downloads */
+    .downloads{display:flex;flex-wrap:wrap;gap:12px}
+    .dl{display:flex;gap:10px;align-items:center;padding:12px 14px;border:1px dashed var(--line);border-radius:12px}
+
+    /* Footer */
+    footer{margin-top:24px;border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:14px}
+
+    .figure{margin:14px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.02)}
+.figure img{display:block;width:100%;height:auto}
+.caption{padding:10px 12px;font-size:13px;color:var(--muted);border-top:1px solid var(--line)}
+
+.badge.heatmap   { background:rgba(124,196,255,.15); border-color:#7cc4ff; color:#7cc4ff; }
+.badge.analyst   { background:rgba(255,204,102,.15); border-color:#ffcc66; color:#ffcc66; }
+.badge.acquire   { background:rgba(50,208,149,.15); border-color:#32d095; color:#32d095; }
+.badge.reputation{ background:rgba(231,180,75,.15); border-color:#e7b44b; color:#e7b44b; }
+.badge.exit      { background:rgba(255,122,122,.15); border-color:#ff7a7a; color:#ff7a7a; }
+
+.bx.investor { fill: rgba(124,196,255,.15); stroke:#7cc4ff; }
+.bx.spv      { fill: rgba(255,204,102,.15); stroke:#ffcc66; }
+.bx.field    { fill: rgba(50,208,149,.15);  stroke:#32d095; }
+.bx.coupon   { fill: rgba(231,180,75,.15);  stroke:#e7b44b; }
+.bx.ai       { fill: rgba(255,122,122,.15); stroke:#ff7a7a; }
+.bx.growth   { fill: rgba(200,122,255,.15); stroke:#c07aff; }
+
+/* Modal styles */
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+
+#caption {
+  margin: 15px auto;
+  text-align: center;
+  color: #ccc;
+  font-size: 14px;
+  width: 80%;
+}
+
+.close {
+  position: absolute;
+  top: 15px; right: 35px;
+  color: #f1f1f1;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: #bbb;
+}
+
+#proceedsPie text{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+
+.badge1{display:inline-block;padding:8px 12px;border-radius:10px;
+        border:1px solid var(--line);background:rgba(255,255,255,.04)}
+
+
+    @media (max-width: 980px){
+      .hero{grid-template-columns:1fr}
+      .facts{grid-template-columns:1fr}
+      .grid.gallery{grid-template-columns:repeat(2,1fr)}
+      .wells{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+</head>
+<body>
+<!-- Navigation Menu -->
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">
+            <a href="/">Tailored Bonds</a>
+            <span class="muted" style="font-size:12px">Investor‑First Bond Structuring</span>
+        </div>
+        <div class="nav-menu-wrapper"></div>
+            <ul class="nav-menu-left">
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="who-we-serve.html">Who We Serve</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+            <ul class="nav-menu-right">
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact-meeting.html" class="btn gold">Book a Call</a></li>
+            </ul>
+        </div>
+         <button class="hamburger" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section id="overview" class="hero">
+      <div>
+        <h1 style="margin:0 0 10px;font-size:36px">Project Phoenix I > 42‑Well Redevelopment</h1>
+
+<p class="muted" style="margin-top:0">
+  The <strong>Phoenix Project</strong> redevelops the Sultan Field (NC-129) via the <strong>re-entry and optimization of 42 capped wells</strong>.
+  Prior drilling confirmed hydrocarbons in the Paleocene dolomite; our phased plan brings wells back online quickly and ties treated crude to the
+  Zuitina terminal while sweetened gas connects to the SOC Brega–Benghazi pipeline. Financing is through the
+  <strong>Project Phoenix Revenue Bonds</strong>—oil-backed cash flows with a <strong>10% AI carry</strong> and a <strong>20% pre-issuance discount</strong> for early allocations.
+</p>
+
+
+        <div class="kpis" style="margin:16px 0 20px">
+          <div class="kpi">
+            <small>Offering Size</small>
+            <strong>$1.99B (multi‑tranche)</strong>
+            <small class="muted">Reg D / Reg A+ Tier 2 / Reg S</small>
+          </div>
+          <div class="kpi">
+            <small>Pre‑Issuance</small>
+            <strong>20% Discount</strong>
+            <small class="muted">Early subscriber incentive</small>
+          </div>
+          <div class="kpi">
+            <small>AI Participation</small>
+            <strong>10% Carry</strong>
+            <small class="muted">On AI investment sleeve</small>
+          </div>
+        </div>
+        <div class="panel card">
+          <ul class="kv">
+            <li><span>Issuer</span><strong>Project Phoenix I SPV LLC</strong></li>
+            <li><span>Sponsor</span><strong>Tailored Bonds LLC</strong></li>
+            <li><span>Status</span><strong><span class="badge warn">Pre‑Issuance</span></strong></li>
+            <li><span>Streams</span><strong>Oil revenues + AI returns</strong></li>
+    <li><span>Coupon</span><strong>5% fixed, paid biannually</strong></li>
+    <li><span>Maturity</span><strong>10 years</strong></li>  
+        
+        
+        </ul>
+        </div>
+        
+      </div>
+     <div class="panel media" style="background-image:url('assets/images/phoenix1/oil-rig.jpg')" title="Refurb-Rig"></div>
+    </section>
+
+
+
+
+    <!-- AREA / GALLERY -->
+<section id="area" class="section">
+  <h2>Area & Facilities</h2>
+  <p class="muted">
+    The Phoenix Project is centered on <strong>Concession NC-129, known as the Sultan Field</strong>,  
+    The field was first discovered in 1996 by the Arabian Gulf Oil Company (AGOCO) 
+    through the drilling of well C1-NC129, which confirmed hydrocarbons in the Paleocene dolomite reservoir. 
+    The concession lies approximately 150 kilometers south of Benghazi and just 35 kilometers northeast 
+    of the <strong>Zuitina export terminal</strong>, with direct access to the <strong>SOC Brega–Benghazi gas pipeline</strong>. 
+    This proximity to established infrastructure allows for rapid evacuation of crude and gas 
+    once wells are brought back online.
+  </p>
+
+  <h3 style="margin:0 0 6px">Production & Offtake</h3>
+<p class="muted">
+  Crude and gas from the Sultan Field will be gathered and separated onsite, then piped directly to
+  <strong>regional processing facilities at Zueitina</strong> and into the <strong>SOC Brega–Benghazi pipeline</strong>.
+  With recent <strong>Honeywell-supported upgrades</strong> to NOC facilities, including sulfur recovery and gas
+  sweetening units, the field can tie into existing capacity rather than requiring a standalone early production facility.
+  Modular separation and pumping units will be installed at the well clusters to ensure flow assurance,
+  with a contingency option to deploy a compact EPF if requested by NOC.
+</p><br>
+
+  <div class="grid gallery" id="gallery">
+    <img src="assets/images/phoenix1/Oil_field_pan.jpg" alt="Field panorama"/>
+    <img src="assets/images/phoenix1/well-pad.jpg" alt="Well pad"/>
+    <img src="assets/images/phoenix1/pipeline_maifold.jpg" alt="Pipelines / manifolds"/>
+    <img src="assets/images/phoenix1/maintenance_pipeline.jpg" alt="maintenance"/>
+    <img src="assets/images/phoenix1/core_samples.png" alt="Core samples / geology"/>
+    <img src="assets/images/phoenix1/workover_rig.jpg" alt="Workover rig"/>
+    <img src="assets/images/phoenix1/storage_oil.jpg" alt="Storage / separators"/>
+    <img src="assets/images/phoenix1/refinary_linkage.jpg" alt="ESPA refinery linkage"/>
+  </div>
+
+  <div class="figure">
+    <img src="assets/images/phoenix1/well-cluster1.png" alt="NC-129 (Sultan Field) – sample cluster of capped wells">
+    <div class="caption">
+      NC-129 (Sultan Field) — sample cluster from the <strong>42 capped wells</strong> targeted for re-entry. 
+    </div>
+  </div>
+</section>
+
+
+<section id="geology" class="section">
+  <h2>Geology & Reservoir</h2>
+  <p class="muted">
+    The Sultan Field in Concession NC-129 is geologically positioned on the northeastern margin of the 
+    <strong>Sirte Basin</strong>, within the Solouq Depression. The field’s primary reservoir is the 
+    <strong>Paleocene dolomite</strong>, characterized by dual porosity – both fractured and vuggy – 
+    which enhances storage and flow capacity. In the upper 100 feet, porosities of 10–15% and permeability 
+    improved by karstification have been consistently measured in cores and logs.
+  </p>
+
+  <p class="muted">
+    The petroleum system is charged by the <strong>Sirte Shale</strong>, a prolific Type II kerogen source rock, 
+    with migration pathways feeding into NC-129 from the Ajdabiya Trough. Regional seals are provided by 
+    Eocene and Oligocene shales, creating effective traps. Trap styles are diverse, including 
+    <strong>four-way fault-bounded closures</strong> and <strong>tilted block structures</strong>, 
+    which have proven effective in retaining hydrocarbons during past drilling campaigns.
+  </p>
+
+  <p class="muted">
+    The stratigraphic framework highlights the Paleocene dolomite as the most prolific unit, 
+    but additional potential exists in the Antelat and Upper Cretaceous horizons. 
+    Hydrocarbon shows and flow tests in wells such as C1-NC129 and F-Structure confirm 
+    commercial-grade oil and gas within these formations.
+  </p>
+
+
+
+
+<div class="grid gallery">
+  <a href="assets/images/phoenix1/strat_column.png" target="_blank">
+    <img src="assets/images/phoenix1/strat_column.png" alt="Stratigraphic column NC-129"/>
+  </a>
+  <a href="assets/images/phoenix1/faices.png" target="_blank">
+    <img src="assets/images/phoenix1/faices.png" alt="Facies and petroleum system map"/>
+  </a>
+  <a href="assets/images/phoenix1/isopack.png" target="_blank">
+    <img src="assets/images/phoenix1/isopack.png" alt="Isopach thickness map"/>
+  </a>
+  <a href="assets/images/phoenix1/top_paleocene_map.png" target="_blank">
+    <img src="assets/images/phoenix1/top_paleocene_map.png" alt="Top Paleocene structural depth map"/>
+  </a>
+</div>
+
+
+  <div class="figure">
+    <img src="assets/oil_dist_map.png" alt="Oil_Distribution-Map – Sultan Field NC-129"/>
+    <div class="caption">
+      Cross-section through the Paleocene reservoir in Sultan Field (NC-129), highlighting the 
+      fractured/vuggy dolomite interval targeted for redevelopment.
+    </div>
+  </div>
+</section>
+
+
+
+
+<section id="economics" class="section">
+  <h2>Economic & Strategic Rationale</h2>
+  <p class="muted">
+    Phoenix prioritizes <strong>redevelopment over exploration</strong>. Re-entering 42 existing wellbores avoids wildcat risk and shortens
+    time-to-cash: pads, access and penetrations already exist, and prior tests confirmed hydrocarbons in the Paleocene dolomite.
+    That lowers capital intensity per flowing barrel and allows a phased ramp that is tightly coupled to cash generation.
+  </p>
+  <p class="muted">
+    Returns flow from two complementary streams. First, <strong>oil & gas production</strong> tied to nearby export infrastructure creates
+    secured, predictable cash for debt service. Second, investors participate in a <strong>10% carry on AI ventures</strong>, providing
+    asymmetric upside without compromising the base energy cash flows.
+  </p>
+</section>
+
+
+
+
+<section id="proceeds" class="section">
+  <h2>Use of Proceeds</h2>
+  <div class="card" style="display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center">
+    <div>
+      <svg id="proceedsPie" viewBox="0 0 42 42" width="100%" height="auto" style="max-width:360px">
+        <circle cx="21" cy="21" r="15.915" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="6"/>
+        <!-- slices injected by JS -->
+      </svg>
+    </div>
+    <div>
+      <table style="width:100%;border-collapse:collapse;font-size:14px">
+        <thead>
+          <tr>
+            <th style="text-align:left;padding:6px;border-bottom:1px solid var(--line)">Category</th>
+            <th style="text-align:right;padding:6px;border-bottom:1px solid var(--line)">Amount</th>
+            <th style="text-align:right;padding:6px;border-bottom:1px solid var(--line)">Share</th>
+          </tr>
+        </thead>
+        <tbody id="proceedsRows"></tbody>
+      </table>
+
+      <p class="muted" style="margin:8px 0 0">Figures illustrative; see PPM for final allocation.</p>
+
+    </div>
+
+</div>
+
+</section>
+
+<script>
+  // ---------- Use of Proceeds data (edit these) ----------
+  const proceedsTotal = 1990000000; // $1.99B
+  const proceedsData = [
+    { label: "Well re-entry & field ops", amount: 168000000, color: "#32d095" },
+    { label: "AI venture investments",     amount: 1550000000, color: "#7cc4ff" },
+    { label: "Management & oversight",     amount: 39800000, color: "#ffcc66" },
+    { label: "Liquidity (MM instruments)", amount: proceedsTotal - (168000000+1550000000+39800000), color: "#e6e9ef" }
+  ];
+  // ------------------------------------------------------
+
+  // Build rows
+  const fmt = n => "$" + (n/1e6).toFixed(1) + "M";
+  const rowsEl = document.getElementById("proceedsRows");
+  rowsEl.innerHTML = "";
+  let acc = 0;
+  proceedsData.forEach(x=>{
+    const pct = x.amount / proceedsTotal * 100;
+    acc += pct;
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td style="padding:6px;border-bottom:1px dashed var(--line)"><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:${x.color};margin-right:8px"></span>${x.label}</td>
+                    <td style="padding:6px;border-bottom:1px dashed var(--line);text-align:right">${fmt(x.amount)}</td>
+                    <td style="padding:6px;border-bottom:1px dashed var(--line);text-align:right">${pct.toFixed(1)}%</td>`;
+    rowsEl.appendChild(tr);
+  });
+
+  // Build donut pie
+  const pie = document.getElementById("proceedsPie");
+  let cumulative = 0;
+  proceedsData.forEach(x=>{
+    const pct = x.amount / proceedsTotal * 100;
+    const dash = `${pct} ${100 - pct}`;
+    const circ = document.createElementNS("http://www.w3.org/2000/svg","circle");
+    circ.setAttribute("cx","21"); circ.setAttribute("cy","21"); circ.setAttribute("r","15.915");
+    circ.setAttribute("fill","none"); circ.setAttribute("stroke", x.color); circ.setAttribute("stroke-width","6");
+    circ.setAttribute("stroke-dasharray", dash);
+    circ.setAttribute("stroke-dashoffset", 25 - cumulative); // rotate so first slice starts at top-left
+    circ.setAttribute("transform","rotate(-90 21 21)");
+    pie.appendChild(circ);
+    cumulative += pct;
+  });
+
+  // Center label
+  const text1 = document.createElementNS("http://www.w3.org/2000/svg","text");
+  text1.setAttribute("x","21"); text1.setAttribute("y","20"); text1.setAttribute("text-anchor","middle");
+  text1.setAttribute("fill","var(--text)"); text1.setAttribute("font-size","4");
+  text1.textContent = "Use of Proceeds";
+  const text2 = document.createElementNS("http://www.w3.org/2000/svg","text");
+  text2.setAttribute("x","21"); text2.setAttribute("y","25"); text2.setAttribute("text-anchor","middle");
+  text2.setAttribute("fill","var(--muted)"); text2.setAttribute("font-size","3");
+  text2.textContent = "$" + (proceedsTotal/1e9).toFixed(2) + "B";
+  pie.appendChild(text1); pie.appendChild(text2);
+</script>
+
+
+
+<section id="venturesage" class="section">
+    <div class="main_card">
+  <h2>VentureSage Investment Strategy</h2>
+  <p class="muted">
+    Beyond oil, the Phoenix Bonds provide access to VentureSage’s <strong>Venture Investment Machine (VIM)</strong> — 
+    a proprietary “Software as a Financial Service” (SaaFS) platform engineered to unlock high-conviction investments 
+    in the fast-growing <strong>AI sector</strong>. Bondholders receive a <strong>10% carried interest</strong> in all realized 
+    venture exits from Year 3 onward, offering asymmetric upside that is de-linked from commodity cycles.
+  </p>
+
+  <div class="card" style="padding:16px;margin-bottom:18px">
+  <h3 style="margin:0 0 8px">The Old Game vs. The VIM Advantage</h3>
+  <p class="muted">
+    Traditional VC is founder roulette: nine out of ten bets fail, and survival depends on fund size. 
+    We flip that logic. Instead of waiting for founders to raise, the <strong>VIM maps markets first</strong> 
+    and proactively funds companies before the rush. Timing and breadth mean second-tier teams can win 
+    with the right capital at the right moment.
+  </p>
+  <ul class="kv" style="margin-top:6px">
+    <li><span>Timing Advantage</span><strong>AI models flag market inflections before they hit mainstream.</strong></li>
+    <li><span>Deal Flow Advantage</span><strong>We source deals proactively, not in overhyped auctions.</strong></li>
+    <li><span>Portfolio Advantage</span><strong>Multiple winners across tiers, not dependence on one unicorn.</strong></li>
+  </ul>
+</div>
+
+
+  <p class="muted">
+    The VIM applies layered AI models and automated deal-sourcing tools to scan, evaluate, and act on opportunities 
+    in pre-IPO companies that are reshaping global value chains. This system accelerates investment velocity, 
+    ensuring the fund is not constrained by traditional deal-flow bottlenecks.
+  </p>
+
+  <div class="card" style="padding:16px;display:grid;gap:10px">
+    <div class="badge1"><h2>Venture Investment Machine (VIM)</h2></div>
+    <div class="muted" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-weight:bold">
+      <h4> Path to Sucess: </h4>
+<span class="badge heatmap">Market Heat-Map</span> →
+<span class="badge analyst">AI Pre-IPO Analyst</span> →
+<span class="badge acquire">Acquisition Machine</span> →
+<span class="badge reputation">Reputation Mgmt</span> →
+<span class="badge exit">Exit Machine</span>
+    </div>
+    <ul class="kv" style="margin-top:6px">
+      <li><span>Market Heat-Map</span><strong>AI models track emerging AI-driven sectors and map growth curves.</strong></li>
+      <li><span>Pre-IPO Analyst</span><strong>Automated diligence & valuation scoring of target companies.</strong></li>
+      <li><span>Acquisition Machine</span><strong>Direct outreach and structured offers at disciplined valuations.</strong></li>
+      <li><span>Reputation Management</span><strong>Strengthens portfolio brand equity ahead of exits.</strong></li>
+      <li><span>Exit Machine</span><strong>Optimized monetization via IPO, M&A, direct listings, or roll-ups.</strong></li>
+    </ul>
+  </div>
+
+  <br>
+
+  <h2>AI Venture Carry — Bondholder Upside (Illustrative)</h2>
+  <div class="card" style="padding:16px">
+    <div id="upsideChart" style="width:100%;max-width:780px;margin:auto"></div>
+    <p class="muted" style="margin-top:8px;font-size:12px">
+      Base case modeled at 3–5× portfolio return. Higher multiples shown for context only. See PPM for risks & assumptions.
+    </p>
+  </div>
+</div>
+</div>
+</section>
+
+
+<script>
+/* ---------- DATA (edit here) ---------- */
+const aiCarryData = [
+  { label: "Conservative\n(3–5×)", valueM: 470, color: "#7cc4ff", note: "PPM-modeled base range" },
+  { label: "AI Market 2025\n(20–30×)", valueM: 2800, color: "#ffcc66", note: "Contextual multiples" }
+];
+/* -------------------------------------- */
+
+(function renderUpsideChart(){
+  const wrap = document.getElementById("upsideChart");
+  if(!wrap) return;
+
+  // Basic layout
+  const W = Math.min(wrap.clientWidth || 780, 780);
+  const H = 360;
+  const pad = { top: 24, right: 16, bottom: 56, left: 60 };
+  const plotW = W - pad.left - pad.right;
+  const plotH = H - pad.top - pad.bottom;
+
+  const maxVal = Math.max(...aiCarryData.map(d => d.valueM)) * 1.15;
+
+  // SVG root
+  const svg = elNS("svg", { viewBox: `0 0 ${W} ${H}`, width: "100%", height: "auto" });
+  svg.style.display = "block";
+  svg.style.background = "transparent";
+  wrap.innerHTML = "";
+  wrap.appendChild(svg);
+
+  // Axes (light)
+  const axisY = elNS("g", { transform: `translate(${pad.left-10},${pad.top})` });
+  const ticks = 5;
+  for(let i=0;i<=ticks;i++){
+     const yVal = maxVal * (i/ticks);
+     const y = plotH - (yVal/maxVal)*plotH;
+     const g = elNS("g", {});
+     // tick line
+     const line = elNS("line",{ x1:10, x2:plotW+10, y1:y, y2:y, stroke:"var(--line)"});
+     // label
+     const lbl = elNS("text",{ x:0, y:y+4, fill:"var(--muted)", "font-size":"12", "text-anchor":"end" });
+     lbl.textContent = `$${yVal.toFixed(0)}M`;
+     g.appendChild(line); g.appendChild(lbl);
+     axisY.appendChild(g);
+  }
+  svg.appendChild(axisY);
+
+  // Bars
+  const barGap = 32;
+  const barW = Math.min(160, (plotW - barGap) / aiCarryData.length - barGap);
+  const barsGroup = elNS("g", { transform: `translate(${pad.left},${pad.top})` });
+  svg.appendChild(barsGroup);
+
+  aiCarryData.forEach((d,i)=>{
+    const x = i * (barW + barGap*2) + barGap;
+    const h = (d.valueM / maxVal) * plotH;
+    const y = plotH - h;
+
+    const rect = elNS("rect", { x, y, width: barW, height: h, rx: 8, fill: d.color, opacity: 0.95 });
+    barsGroup.appendChild(rect);
+
+    // Value label
+    const val = elNS("text", {
+      x: x + barW/2, y: y - 8, "text-anchor":"middle", fill:"var(--text)", "font-size":"13", "font-weight":"700"
+    });
+    val.textContent = `$${d.valueM.toLocaleString()}M`;
+    barsGroup.appendChild(val);
+
+    // X label (multi-line support with \n)
+    const lines = d.label.split("\n");
+    lines.forEach((t, idx)=>{
+      const lbl = elNS("text", {
+        x: x + barW/2, y: plotH + 20 + idx*16, "text-anchor":"middle",
+        fill:"var(--muted)", "font-size":"12"
+      });
+      lbl.textContent = t;
+      barsGroup.appendChild(lbl);
+    });
+
+    // Simple tooltip on hover (title tag)
+    const title = elNS("title", {});
+    title.textContent = `${d.label.replace(/\n/g," ")} — ${d.note}\nUpside: $${d.valueM.toLocaleString()}M`;
+    rect.appendChild(title);
+  });
+
+  // Title
+  const title = elNS("text", { x: W/2, y: 18, "text-anchor":"middle", fill:"var(--text)", "font-size":"16", "font-weight":"700" });
+  title.textContent = "AI Venture Carry — Bondholder Upside Potential";
+  svg.appendChild(title);
+
+  // Helpers
+  function elNS(n, attrs){
+    const e = document.createElementNS("http://www.w3.org/2000/svg", n);
+    for(const k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+})();
+</script>
+
+
+
+
+<!-- PROCESS FLOW (replaces #timeline) -->
+<section id="process" class="section">
+  <h2>Process Flow — From Bonds to Distributions</h2>
+
+  <!-- Flow diagram -->
+  <div class="card" style="padding:16px">
+    <div style="display:grid;gap:12px">
+      <div class="muted" style="font-size:14px">
+        The Phoenix structure delivers secured oil coupon cash flows and a 10% carry on AI venture exits. 
+        Below: how funds move from subscription to distributions.
+      </div>
+
+      <!-- Inline SVG flow (responsive) -->
+      <div style="width:100%;max-width:980px;margin:auto">
+        <svg viewBox="0 0 980 250" width="100%" height="auto" role="img" aria-label="Bond to distributions process">
+          <defs>
+            <style>
+              .bx{fill:#0f141d;stroke:var(--line);stroke-width:1}
+              .tt{fill:var(--text);font:600 13px Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial}
+              .tx{fill:var(--muted);font:12px Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial}
+              .arr{stroke:var(--line);stroke-width:1.5;marker-end:url(#m)}
+            </style>
+            <marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+              <path d="M0,0 L0,6 L9,3 z" fill="var(--line)"></path>
+            </marker>
+          </defs>
+
+          <!-- Row 1: Capital formation -->
+          <rect x="20"  y="20"  rx="10" ry="10" width="210" height="70" class="bx"/>
+          <text x="35"  y="45" class="tt">Investor Subscriptions</text>
+          <text x="35"  y="68" class="tx">Pre-Issuance / Placement Partners</text>
+
+          <line x1="230" y1="55" x2="300" y2="55" class="arr"/>
+          <rect x="300" y="20" rx="10" ry="10" width="210" height="70" class="bx"/>
+          <text x="315" y="45" class="tt">SPV / Trustee Controls</text>
+          <text x="315" y="68" class="tx">Use-of-Proceeds / Reporting</text>
+
+          <line x1="510" y1="55" x2="580" y2="55" class="arr"/>
+          <rect x="580" y="20" rx="10" ry="10" width="180" height="70" class="bx"/>
+          <text x="595" y="45" class="tt">Deploy to Field</text>
+          <text x="595" y="68" class="tx">Re-entries, tie-ins, ops</text>
+
+          <line x1="760" y1="55" x2="830" y2="55" class="arr"/>
+          <rect x="830" y="20" rx="10" ry="10" width="130" height="70" class="bx"/>
+          <text x="845" y="45" class="tt">Oil Coupons</text>
+          <text x="845" y="68" class="tx">Biannual payments</text>
+
+          <!-- Row 2: AI sleeve -->
+          <rect x="300" y="140" rx="10" ry="10" width="250" height="70" class="bx"/>
+          <text x="315" y="165" class="tt">Deploy to AI Sleeve</text>
+          <text x="315" y="188" class="tx">VIM: heat-map → diligence → acquisition</text>
+
+          <line x1="510" y1="175" x2="580" y2="175" class="arr"/>
+          <rect x="580" y="140" rx="10" ry="10" width="180" height="70" class="bx"/>
+          <text x="595" y="165" class="tt">Portfolio Growth</text>
+          <text x="595" y="188" class="tx">Reputation mgmt, scale</text>
+
+          <line x1="760" y1="175" x2="830" y2="175" class="arr"/>
+          <rect x="830" y="140" rx="10" ry="10" width="140" height="70" class="bx"/>
+          <text x="845" y="165" class="tt">AI Carry</text>
+          <text x="845" y="188" class="tx">10% of realized exits</text>
+
+<rect x="20" y="20" rx="10" ry="10" width="210" height="70" class="bx investor"/>
+<rect x="300" y="20" rx="10" ry="10" width="210" height="70" class="bx spv"/>
+<rect x="580" y="20" rx="10" ry="10" width="180" height="70" class="bx field"/>
+<rect x="830" y="20" rx="10" ry="10" width="130" height="70" class="bx coupon"/>
+
+<rect x="300" y="140" rx="10" ry="10" width="250" height="70" class="bx ai"/>
+<rect x="580" y="140" rx="10" ry="10" width="180" height="70" class="bx growth"/>
+<rect x="830" y="140" rx="10" ry="10" width="140" height="70" class="bx coupon"/>
+
+
+          <!-- Connect SPV to both branches -->
+          <line x1="405" y1="90" x2="405" y2="140" class="arr"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+<section id="downloads" class="section">
+  <h2>Offering Documents</h2>
+  <p class="muted">
+    Current pre-issuance investor documents. Trustee, rating, and legal opinions will follow upon mandate.
+  </p>
+  <div class="downloads">
+    <a class="dl" href="docs/phoenix/Pre-Issuance-Supplement.pdf"><span>📄</span> Pre-Issuance Supplement (20% Discount)</a>
+    <a class="dl" href="docs/phoenix/Private-Placement-Memorandum.pdf"><span>📄</span> Private Placement Memorandum</a>
+    <a class="dl" href="docs/phoenix/Trust-Indenture.pdf"><span>📄</span> Illustrative Draft Trust Indenture</a>
+  </div>
+</section>
+
+    <!-- CONTACT / CTA -->
+    <section id="contact" class="section">
+      <h2>Investor Contact</h2>
+      <div class="card" style="padding:16px">
+        <p style="margin-top:0">For access to the full data room and technical packs, contact <strong>Tailored Bonds</strong>. Qualified investors only. Pre‑Issuance discount available during Phase 0.</p>
+        <ul class="kv">
+          <li><span>Email</span><strong>invest@tailoredbonds.com</strong></li>
+          <li><span>Manager</span><strong>Project Phoenix I SPV LLC</strong></li>
+          <li><span>Compliance</span><strong>Reg D / Reg A+ Tier 2 / Reg S</strong></li>
+          <li><span>Risk</span><strong><span class="badge">See PPM Risk Factors</span></strong></li>
+        </ul>
+      </div>
+    </section>
+
+
+<div id="imgModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImg">
+  <div id="caption"></div>
+</div>
+
+
+    <footer>
+      <div class="wrap" style="padding:0">
+        © <span id="yr"></span> Tailored Bonds LLC <br>
+        <br> Investor‑First Bond Structuring. <br> <br> This brochure is an overview only and not an offer to sell or solicitation to buy any security. <br>Offers are made only by the PPM and applicable supplements.
+      </div>
+    </footer>
+  </main>
+
+    <script>
+        // Year
+        document.getElementById('yr').textContent = new Date().getFullYear();
+
+        // Minimal CSV importer for the 42 wells directory
+        function renderWells(rows){
+        const el = document.getElementById('wellList');
+        el.innerHTML = '';
+        if(!rows.length){
+            // Seed placeholder 42 cards
+            for(let i=1;i<=42;i++){
+            const d=document.createElement('div');d.className='well';
+            d.innerHTML = `<h4>Well ${i.toString().padStart(2,'0')}</h4>
+                <div class="row"><span>ID</span><span>PX-${i.toString().padStart(2,'0')}</span></div>
+                <div class="row"><span>Status</span><span>planned</span></div>
+                <div class="row"><span>Action</span><span>re‑entry + workover</span></div>
+                <div class="row"><span>Lat / Lon</span><span>—</span></div>`;
+            el.appendChild(d);
+            }
+            return;
+        }
+        rows.forEach(r=>{
+            const [name,id,status,action,lat,lon]=r;
+            const d=document.createElement('div');d.className='well';
+            d.innerHTML = `<h4>${name||'—'}</h4>
+            <div class="row"><span>ID</span><span>${id||'—'}</span></div>
+            <div class="row"><span>Status</span><span>${status||'—'}</span></div>
+            <div class="row"><span>Action</span><span>${action||'—'}</span></div>
+            <div class="row"><span>Lat / Lon</span><span>${lat||'—'}, ${lon||''}</span></div>`;
+            el.appendChild(d);
+        });
+        }
+        renderWells([]);
+
+        document.getElementById('importBtn').addEventListener('click',()=>{
+        const txt = document.getElementById('csv').value.trim();
+        if(!txt){renderWells([]);return}
+        const rows = txt.split(/\n+/).map(l=>l.split(/\s*,\s*/));
+        renderWells(rows);
+        });
+    </script>
+    <script>
+    // Modal elements
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("modalImg");
+    const captionText = document.getElementById("caption");
+    const closeBtn = document.querySelector(".modal .close");
+
+    function openModal(src, caption){
+        modal.style.display = "block";
+        modalImg.src = src;
+        captionText.textContent = caption || "";
+        document.body.style.overflow = "hidden";
+    }
+    function closeModal(){
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+    }
+
+    if (modal && modalImg && captionText && closeBtn) {
+        document.querySelectorAll(".gallery img").forEach(img => {
+        img.addEventListener("click", (e) => {
+            // If image is inside an anchor, use its href & prevent navigation
+            const parent = img.closest("a");
+            const fullSrc = parent && parent.getAttribute("href") ? parent.getAttribute("href") : img.src;
+            if (parent) e.preventDefault();
+            openModal(fullSrc, img.alt);
+        });
+        });
+
+        closeBtn.addEventListener("click", closeModal);
+
+        modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.style.display === "block") closeModal();
+        });
+    }
+    </script>
+
+
+
+</body>
+</html>

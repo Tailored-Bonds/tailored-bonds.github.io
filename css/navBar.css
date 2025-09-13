@@ -1,0 +1,205 @@
+/* Color Variables */
+:root {
+    --black: #000000;
+    --off-white: #e0e0e0;
+    --white: #ffffff;
+    --light-grey: #dadada;
+    --logo-color: #deddff;
+    --copper: #b87333;
+    --silver: #c0c0c0;
+    --deep-blue: #1e90ff;
+}
+
+/* Navbar */
+.navbar {
+    /*background-image: url('../assets/soft-gold-texture.svg');*/
+    background-color: #000;
+    background-size: cover;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out, padding 0.3s ease-in-out;
+    padding: 0px 0;
+}
+
+/* Navbar container */
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50ppx;
+    padding-left: 30px;
+}
+
+/* Styling for the company logo */
+.logo {
+    text-align: center;
+    padding-left: 50px; /* You can reduce this padding if needed */
+    padding-top: 10px; /* Adjust padding as needed */
+}
+
+.logo a {
+    color: var(--logo-color);
+    font-size: 1.5em;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-family: 'Georgia', serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Drop shadow effect */
+    display: block; /* Ensure it stacks properly */
+    margin-bottom: 0px; /* Set to 0 to eliminate extra space */
+}
+
+.logo .subtitle {
+    color: var(--white);
+    font-size: 0.7em;
+    font-weight: 500;
+    margin-top: -5px; /* Negative margin to pull the subtitle closer */
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Subtle drop shadow */
+    padding-bottom: 5px;
+}
+
+/* Left-side menu */
+.nav-menu-left {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding-left: 70px;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.nav-menu-left li {
+    display: inline-block;
+}
+
+.nav-menu-left li a {
+    background-color: transparent;
+    cursor: pointer;
+    font-family: Amplitude, Arial, Helvetica, sans-serif; 
+    font-size: 85%;
+    color: var(--white);
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    font-weight: 100;
+    text-shadow: 
+        -0.5px -0.5px 0 var(--black),
+        0.5px -0.5px 0 var(--black),
+        -0.5px 0.5px 0 var(--black),
+        0.5px 0.5px 0 var(--black);
+
+}
+
+/* Right-side menu */
+.nav-menu-right {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding-right: 50px;
+
+}
+
+.nav-menu-right li {
+    display: inline-block;
+}
+
+.nav-menu-right li a {
+    font-family: Amplitude, Arial, Helvetica, sans-serif;
+    font-size: 70.0%;
+    text-decoration: none;
+    color: var(--light-grey);
+    padding: 10px 15px;
+
+}
+
+
+.nav-menu-left li a:hover,
+.nav-menu-right li a:hover {
+    color: var(--copper);
+}
+
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--off-white);
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 1001; 
+}
+
+/* For smaller screens (up to 768px) */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        padding-left: 20px;
+        text-align: left;
+    }
+
+    .nav-menu-left,
+    .nav-menu-right {
+        display: none; /* Hide menus by default */
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--black);
+    }
+
+    .nav-menu-left li,
+    .nav-menu-right li {
+        width: 100%;
+        text-align: left;
+        padding: 10px 0;
+    }
+
+    .nav-menu-left.active,
+    .nav-menu-right.active {
+        display: flex; /* Show menu when active */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon */
+    }
+}
+
+/* For medium screens (768px to 1200px) */
+@media (min-width: 768px) and (max-width: 1200px) {
+    .navbar .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .logo {
+        padding-left: 30px;
+    }
+
+    .nav-menu-left {
+        gap: 15px;
+    }
+
+    .nav-menu-right {
+        gap: 10px;
+        padding-right: 20px;
+    }
+}
+
+/* For larger screens (above 1200px) */
+@media (min-width: 1201px) {
+    .nav-menu-left,
+    .nav-menu-right {
+        display: flex; /* Ensure menus are shown */
+    }
+
+    .hamburger {
+        display: none; /* Hide hamburger icon */
+    }
+}

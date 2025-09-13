@@ -1,0 +1,223 @@
+/* General Styles */
+body {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    padding-top: 60px; /* Add space to avoid overlap with Navbar */
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    color: #2737e8;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2.5em;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000;
+    padding: 10px 0;
+    z-index: 1000; /* Ensure Navbar stays on top */
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a {
+    font-size: 1.5em;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.navbar .subtitle {
+    font-size: 0.9em;
+    color: #ddd;
+}
+
+.navbar .nav-menu {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-menu li {
+    margin: 0 15px;
+}
+
+.navbar .nav-menu a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.navbar .nav-menu a:hover {
+    color: #FFB800;
+}
+
+/* Post Content Section */
+.post-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Post Title */
+#post-title {
+    font-family: 'Playfair Display', serif;
+    color: #2737e8;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.2em;
+}
+
+/* Post Date */
+#post-date {
+    text-align: center;
+    font-size: 0.9em;
+    color: #888;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+/* Image Wrapper */
+.image-wrapper {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.image-wrapper img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Post Body */
+#post-body {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    margin-top: 20px;
+    padding: 20px 0;
+}
+
+
+/* Base Footer Styles */
+footer {
+    background-color: var(--black);
+    color: var(--off-white);
+    padding: 20px 40px;
+    text-align: center;
+    border-top: 1px solid var(--silver);
+    font-size: 80em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer a {
+    color: var(--copper);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--deep-blue); /* Adds a slight color change on hover */
+}
+
+/* Footer Content Container */
+.footer-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Footer Links Styling */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links li {
+    margin: 0 5px;
+}
+
+.footer-links a {
+    font-size: 0.9em;
+}
+
+/* Small screens (max-width: 600px) */
+@media (max-width: 600px) {
+    footer {
+        padding: 15px 20px;
+        font-size: 0.50em;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Medium screens (600px to 992px) */
+@media (min-width: 600px) and (max-width: 992px) {
+    footer {
+        padding: 20px 30px;
+        font-size: 0.70em;
+    }
+
+    .footer-content {
+        justify-content: space-around;
+    }
+}
+
+/* Large screens (992px and up) */
+@media (min-width: 992px) {
+    footer {
+        padding: 25px 50px;
+        font-size: 0.80em;
+    }
+
+    .footer-content {
+        justify-content: space-between;
+    }
+}
+
+/* Extra large screens (1200px and up) */
+@media (min-width: 1200px) {
+    footer {
+        padding: 30px 60px;
+    }
+
+    .footer-content {
+        max-width: 1400px;
+    }
+}

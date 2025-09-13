@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard | Tailored Bonds</title>
+    <link rel="stylesheet" href="css/Admin.css">
+</head>
+<body>
+    <div id="login-popup">
+        <h2>Admin Login</h2>
+        <input type="password" id="admin-password" placeholder="Enter password" />
+        <button onclick="submitPassword()">Login</button>
+        <p id="login-message" style="color: red;"></p>
+    </div>
+
+    <div id="admin-content" style="display: none;">
+        <h1>Admin Dashboard</h1>
+
+        <!-- Section for Adding New Insight Post -->
+        <section id="add-post">
+            <h2>Add New Insight Post</h2>
+            <form id="add-post-form" action="/posts" method="post">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="body">Body:</label>
+                <textarea id="body" name="body" rows="6" required></textarea>
+
+                <label for="published">Publish:</label>
+                <input type="checkbox" id="published" name="published">
+
+                <label for="image_url">Image URL (optional):</label>
+                <input type="text" id="image_url" name="image_url">
+
+                <button type="submit">Add Post</button>
+            </form>
+        </section>
+
+        <!-- Section for Viewing and Managing Posts -->
+        <section id="view-posts">
+            <h2>Manage Insight Posts</h2>
+            <div id="posts-container">
+                <p>Loading posts...</p>
+            </div>
+        </section>
+
+        <!-- Section for Viewing and Managing Contact Requests -->
+        <section id="view-contacts">
+            <h2>Contact Requests</h2>
+            <div id="contacts-container">
+                <p>Loading contact requests...</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        async function submitPassword() {
+            const password = document.getElementById('admin-password').value;
+            const response = await fetch('/admin_login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({ password }).toString()
+            });
+
+            if (response.ok) {
+                document.getElementById('login-popup').style.display = 'none';
+                document.getElementById('admin-content').style.display = 'block';
+                fetchPosts();
+                fetchContactRequests();
+            } else {
+                document.getElementById('login-message').textContent = 'Invalid password. Please try again.';
+            }
+        }
+
+        // Function to fetch and display posts
+        async function fetchPosts() {
+            try {
+                const response = await fetch('posts');
+                const posts = await response.json();
+                const container = document.getElementById('posts-container');
+                container.innerHTML = '';
+
+                if (posts.length === 0) {
+                    container.innerHTML = '<p>There are 0 Posts.</p>';
+                } else {
+                    posts.forEach(post => {
+                        const postDiv = document.createElement('div');
+                        postDiv.classList.add('post-item');
+                        postDiv.innerHTML = `
+                            <h3>${post.title}</h3>
+                            <p>${post.body.slice(0, 100)}...</p>
+                            <button onclick="deletePost(${post.id})">Delete</button>
+                        `;
+                        container.appendChild(postDiv);
+                    });
+                }
+            } catch (error) {
+                console.error('Failed to fetch posts:', error);
+            }
+        }
+
+        // Function to fetch and display contact requests
+        async function fetchContactRequests() {
+            try {
+                const response = await fetch('get_contact_requests');
+                const contacts = await response.json();
+                const container = document.getElementById('contacts-container');
+                container.innerHTML = '';
+
+                if (contacts.length === 0) {
+                    container.innerHTML = '<p>There are 0 Contact Requests.</p>';
+                } else {
+                    contacts.forEach(contact => {
+                        const contactDiv = document.createElement('div');
+                        contactDiv.classList.add('contact-item');
+                        contactDiv.innerHTML = `
+                            <p><strong>Name:</strong> ${contact.name}</p>
+                            <p><strong>Email:</strong> ${contact.email}</p>
+                            <p><strong>Subject:</strong> ${contact.subject}</p>
+                            <p><strong>Message:</strong> ${contact.message}</p>
+                            <p><strong>Received At:</strong> ${new Date(contact.created_at).toLocaleString()}</p>
+                            <p><strong>Category:</strong> ${contact.category}</p>
+                            <button onclick="deleteContact(${contact.id})">Delete</button>
+                        `;
+                        container.appendChild(contactDiv);
+                    });
+                }
+            } catch (error) {
+                console.error('Failed to fetch contact requests:', error);
+            }
+        }
+
+        // Function to delete a post
+        async function deletePost(id) {
+            try {
+                const response = await fetch(`delete_post/${id}`, { method: 'DELETE' });
+                if (response.ok) {
+                    alert('Post deleted successfully');
+                    fetchPosts();
+                } else {
+                    alert('Failed to delete post');
+                }
+            } catch (error) {
+                console.error('Error deleting post:', error);
+            }
+        }
+
+        // Function to delete a contact request
+        async function deleteContact(id) {
+            try {
+                const response = await fetch(`delete_contact_request/${id}`, { method: 'DELETE' });
+                if (response.ok) {
+                    alert('Contact request deleted successfully');
+                    fetchContactRequests();
+                } else {
+                    alert('Failed to delete contact request');
+                }
+            } catch (error) {
+                console.error('Error deleting contact request:', error);
+            }
+        }
+
+        // Show the login popup on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('login-popup').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

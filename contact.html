@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Tailored Bonds</title>
+    <link rel="stylesheet" href="css/contact.css">
+    <script type="module" src="js/navBar.js"></script>
+    <link rel="stylesheet" href="css/navBar.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">
+            <a href="index.html">Tailored Bonds</a>
+            <div class="subtitle">Investor-First Bond Structuring</div>
+        </div>
+        
+        <div class="nav-menu-wrapper"></div>
+            <ul class="nav-menu-left">
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="who-we-serve.html">Who We Serve</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+            <ul class="nav-menu-right">
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="book-meeting.html" class="btn gold">Book a Call</a></li>
+            </ul>
+        </div>
+         <button class="hamburger" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+    <!-- Contact Header -->
+    <header class="contact-header">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you. Reach out to Worldwide Holdings for inquiries, partnerships, or more information.</p>
+    </header>
+
+    <!-- Contact Form Section -->
+    <div class="contact-container">
+<form id="contact-form">
+  <input type="hidden" name="category" value="investors"><!-- change per page -->
+  <!-- Honeypot: -->
+  <input type="text" name="website" autocomplete="off" tabindex="-1" style="display:none">
+
+  <label for="name">Name:</label>
+  <input id="name" name="name" required>
+
+  <label for="email">Email:</label>
+  <input id="email" name="email" type="email" required>
+
+  <label for="subject">Subject:</label>
+  <input id="subject" name="subject" required>
+
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" rows="6" required></textarea>
+
+  <button type="submit">Send Message</button>
+</form>
+
+<!-- Shared static-only handler -->
+<script type="module" src="js/contact.js"></script>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Worldwide Holdings Inc. All rights reserved. | <a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(this);
+            
+            try {
+                const response = await fetch('/create_contact_request', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: new URLSearchParams({
+                        name: formData.get('name'),
+                        email: formData.get('email'),
+                        subject: formData.get('subject'),
+                        message: formData.get('message')
+                    }).toString()
+                });
+
+                if (response.ok) {
+                    alert('Your message has been sent successfully.');
+                    this.reset(); // Reset the form fields
+                } else {
+                    alert('Failed to send your message. Please try again later.');
+                }
+            } catch (error) {
+                console.error('Error submitting the contact request:', error);
+                alert('An error occurred. Please try again later.');
+            }
+        });
+    </script>
+</body>
+</html>
