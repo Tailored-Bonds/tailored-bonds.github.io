@@ -71,12 +71,22 @@ body {
 /* Contact Form Container */
 .contact-container {
     max-width: 600px;
+    box-sizing: border-box;
     margin: 40px auto;
-    padding: 20px;
-    background-color: #222;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    background: linear-gradient(180deg, #1a1a1a, #111); /* dark gradient card */
+    border: 1px solid rgba(255, 255, 255, 0.08);        /* subtle border */
+    border-radius: 16px;                                /* smoother corners */
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);         /* deep shadow */
 }
+
+.contact-container input,
+.contact-container textarea,
+.contact-container button {
+  width: 100%;
+  box-sizing: border-box; /* 🔑 ensures padding is included in width */
+}
+
 
 .contact-container label {
     display: block;
@@ -87,28 +97,42 @@ body {
 .contact-container input,
 .contact-container textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #333;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    background-color: #1e1e1e;   /* slightly lighter than card */
     color: #fff;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-container input:focus,
+.contact-container textarea:focus {
+    outline: none;
+    border-color: var(--brand); /* highlight with brand gold */
+    box-shadow: 0 0 0 2px rgba(231, 180, 75, 0.3);
 }
 
 .contact-container button {
     width: 100%;
-    padding: 10px;
-    background-color: #FFB800;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--brand), #ffd98a);
     color: #000;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     font-weight: bold;
+    font-size: 1.05em;
     cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, background 0.3s ease;
 }
 
 .contact-container button:hover {
-    background-color: #FF8C00;
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #ffd98a, var(--brand));
 }
+
 
 /* Footer */
 
@@ -119,7 +143,7 @@ footer {
     padding: 20px 40px;
     text-align: center;
     border-top: 1px solid var(--silver);
-    font-size: 80em;
+    font-size: 0.8em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -217,4 +241,24 @@ footer a:hover {
     .footer-content {
         max-width: 1400px;
     }
+}
+
+/* Mobile (≤600px) */
+@media (max-width: 600px) {
+  .contact-container {
+    margin: 15px;
+    padding: 16px;
+  }
+
+  .contact-container input,
+  .contact-container textarea {
+    font-size: 1em;
+    padding: 12px;
+  }
+
+  .contact-container button {
+    font-size: 1.05em;
+    padding: 14px;
+    border-radius: 6px;
+  }
 }

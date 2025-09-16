@@ -82,25 +82,24 @@ iframe {
     padding: 0;
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
+    flex-wrap: wrap;   /* allows wrapping on small screens instead of stacking */
 }
 
 .sub-menu ul li a {
-    color: #cfcfcf; /* Softer off-white */
+    color: #cfcfcf;
     text-decoration: none;
-    padding: 0px 0px;
-    border-radius: 3px;
-   background-color: transparent;
+    padding: 6px 12px;
+    border-radius: 4px;
+    background-color: transparent;
     transition: color 0.3s, background-color 0.3s;
-    /* background-color: #555; /* Dark gray background for buttons */
-   /*  transition: all 0.3s ease;*/
     position: relative;
     font-size: 0.9em;
 }
 
 .sub-menu ul li a:hover {
-    background-color: #666; /* Bright background on hover */
-    color: #e6e6e6; /* Darker text color on hover */
+    background-color: #333;
+    color: #fff;
 }
 
 .sub-menu ul li a::after {
@@ -187,15 +186,6 @@ footer a:hover {
         margin-top: 0px;
     }
 
-    .sub-menu {
-        padding: 10px 0;
-        top: 64px;
-    }
-
-    .sub-menu ul li a {
-        padding: 1px 6px;
-    }
-
     iframe {
         margin-top: 30px;
         height: 600px;
@@ -233,16 +223,6 @@ footer a:hover {
         margin-top: 0px; /* Consistent spacing below the sub-menu */
     }
 
-    .sub-menu {
-        top: 64px; /* Aligns higher for larger screens */
-        padding: 15px 0;
-    }
-
-    .sub-menu ul li a {
-        padding: 15px 50px; /* Larger padding for better readability */
-        font-size: 1.2em; /* Slightly larger font size */
-    }
-
     iframe {
         margin-top: 50px;
         height: 1000px; /* Taller iframe for extra-large screens */
@@ -254,21 +234,7 @@ footer a:hover {
     .iframe-section {
         padding: 15px;
         min-height: 600px;
-        margin-top: 0px;
-    }
-
-    .sub-menu {
-        padding: 8px 0;
-        top: 64;
-    }
-
-    .sub-menu ul {
-        flex-direction: column; /* Stack items vertically */
-        gap: 10px;
-    }
-
-    .sub-menu ul li a {
-        padding: 2px 6px;
+        margin-top: 30px;
     }
 
     iframe {
