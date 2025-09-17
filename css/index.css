@@ -453,21 +453,20 @@ footer a:hover {
   .bonds .bc-track {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: 90%;       /* each card takes 90% width */
-    justify-content: center;      /* centers cards in track */
+    grid-auto-columns: 90%;          /* each card takes 90% width */
     gap: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    padding: 8px 0;
+    padding: 8px 5%;                 /* gutters for centering first & last */
   }
 
   .bonds .deal-card {
-    scroll-snap-align: center;    /* snap card to center */
-    margin: 0 auto;               /* ensure centered */
+    scroll-snap-align: center;       /* snap to center */
   }
 }
+
 
 /* Small screens (max-width: 600px) */
 @media (max-width: 600px) {
