@@ -50,20 +50,41 @@
 </header>
 
 <!-- ================= TERMINAL CHAT INTERFACE ================= -->
-<main class="terminal-container">
-  <div class="terminal-inner">
-    <h2 class="terminal-title">💼 Generic Financial Conversation</h2>
-    <div id="finance-chat-box" class="chat-box"></div>
-    <div class="input-row">
-    <textarea id="finance-input" rows="1" placeholder="Ask about markets, yields, or structuring trends..."></textarea>
-    <button onclick="sendFinance()">Send</button>
-    </div>
+<main class="chat-layout">
+  <!-- Generic Finance Chat -->
+  <section class="chat-panel" id="finance-panel">
+    <header class="chat-header">
+      <h2>💬 Generic Financial Conversation</h2>
+    </header>
 
-    <hr class="terminal-divider">
+    <div id="finance-chat-box" class="chat-messages"></div>
 
-<div class="guide-trigger">
-  <button id="openGuideBtn" class="btn-guide">💡 How to Use 1XLR8</button>
-</div>
+    <form class="chat-input" onsubmit="event.preventDefault(); sendFinance();">
+      <textarea id="finance-input" placeholder="Ask about markets, yields, or structuring trends..."></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <!-- Divider -->
+  <hr class="terminal-divider" />
+
+  <!-- Bond Structuring Chat -->
+  <section class="chat-panel" id="bond-panel">
+    <header class="chat-header">
+      <h2>🏦 Bond Structuring Assistant (1XLR8 Engine)</h2>
+      <button id="openGuideBtn" class="btn-guide" aria-label="Info">ⓘ</button>
+
+    </header>
+
+    <div id="bond-chat-box" class="chat-messages"></div>
+
+    <form class="chat-input" onsubmit="event.preventDefault(); sendBond();">
+      <textarea id="bond-input" placeholder="Describe your project or bond idea..."></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</main>
+
 
 <!-- Modal -->
 <div id="bondGuideModal" class="modal">
@@ -88,21 +109,10 @@
     <p class="note">⚠️ All outputs are for research and scenario analysis — not investment advice.</p>
 
     <div class="modal-footer">
-      <button id="closeGuideBtn2" class="btn-guide">Got it</button>
+      <button id="closeGuideBtn2" class="btn-guide">(x)</button>
     </div>
   </div>
 </div>
-
-    <h2 class="terminal-title">🏦 Bond Structuring Assistant (1XLR8 Engine)</h2>
-    <div id="bond-chat-box" class="chat-box"></div>
-    <div class="input-row">
-    <textarea id="bond-input" rows="1" placeholder="Describe your project or bond idea..."></textarea>
-    <button onclick="sendBond()">Send</button>
-    </div>
-
-    <p class="tiny terminal-note"> AI output is for research and scenario analysis only, it is not investment advice.</p>
-  </div>
-</main>
 
 <!-- ================= FOOTER ================= -->
 <footer>

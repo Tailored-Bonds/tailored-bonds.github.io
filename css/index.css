@@ -599,3 +599,59 @@ footer a:hover {
   flex-direction:column;
   height:100%;
 }
+
+/* ===== 1XLR8 Technology Page Enhancements ===== */
+#architecture h2, #deeptech h2, #founder h3 {
+  color: var(--brand);
+  text-shadow: 0 0 6px rgba(231,180,75,0.6);
+}
+
+#architecture p, #deeptech p, #deeptech ul, #founder p {
+  color: var(--off-white);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Founder Bio Card */
+.founder-card {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
+.founder-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 100%;
+  background: url('../assets/images/team/mattias.jpeg') center/cover no-repeat, #0f1a30;
+  border: 2px solid var(--brand);
+  box-shadow: 0 0 15px rgba(231,180,75,.25);
+  flex-shrink: 0;
+}
+
+.founder-info h3 {
+  margin-top: 0;
+  color: var(--brand);
+  font-size: 1.3rem;
+}
+.founder-info p {
+  margin: 6px 0;
+}
+
+/* Responsive founder layout */
+@media (max-width: 768px) {
+  .founder-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
+  .founder-photo {
+    width: 100px;
+    height: 100px;
+  }
+}
