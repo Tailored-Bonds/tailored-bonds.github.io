@@ -124,7 +124,11 @@ body::before {
   padding: 12px;
   background: #001909;
   border-top: 1px solid var(--green-border);
+  border-radius: 8px;
+  box-sizing: border-box;
 }
+
+/* The textarea is what triggers zooming, so we fix font-size here */
 .chat-input textarea {
   flex: 1;
   resize: none;
@@ -135,13 +139,16 @@ body::before {
   border-radius: 6px;
   padding: 10px;
   font-family: 'Share Tech Mono', monospace;
+  font-size: 16px;          /* 👈 prevents mobile zoom */
   line-height: 1.4;
   outline: none;
 }
+
 .chat-input textarea:focus {
   border-color: var(--green);
   box-shadow: 0 0 8px #00ff7f33;
 }
+
 .chat-input button {
   background: var(--green-dark);
   color: var(--green);
@@ -183,8 +190,6 @@ footer a:hover {
 .btn-guide {
   background: transparent;
   color: var(--green);
-  border: 1px solid var(--green);
-  border-radius: 6px;
   padding: 6px 14px;
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.9rem;
@@ -236,10 +241,19 @@ footer a:hover {
    RESPONSIVE
    ========================================================= */
 @media (max-width: 1024px) {
-  .terminal-hero { padding: 70px 24px 50px; font-size: 1rem; }
-  .chat-input { flex-direction: column; }
-  .chat-input textarea, .chat-input button { width: 100%; }
+  .terminal-hero {
+    padding: 70px 24px 50px;
+    font-size: 1rem;
+  }
+  .chat-input {
+    flex-direction: column;
+  }
+  .chat-input textarea,
+  .chat-input button {
+    width: 100%;
+  }
 }
+
 @media (max-width: 600px) {
   .terminal-hero { padding: 60px 16px 40px; font-size: 0.9rem; }
   .chat-messages { font-size: 14px; padding: 10px; }
@@ -348,20 +362,6 @@ footer a:hover {
   text-shadow: 0 0 8px #00ffaa;
 }
 
-/* --- Mobile & Tablet: show only icon --- */
-@media (max-width: 768px) {
-  .btn-guide {
-    width: 36px;
-    height: 36px;
-    font-size: 1.1rem;
-    border-radius: 50%;
-    padding: 0;
-  }
-
-  .btn-guide::after {
-    content: ''; /* hides "How to Use" text */
-  }
-}
 
 textarea::placeholder,
 input::placeholder {

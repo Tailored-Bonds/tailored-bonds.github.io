@@ -49,6 +49,15 @@ section { padding:72px 0; }
   box-shadow:0 10px 24px rgba(0,0,0,.30);
 }
 
+.panel2 {
+  background:linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--radius);
+  padding:20px 22px;
+  box-shadow:0 10px 24px rgba(0,0,0,.30);
+  width: 70%; 
+}
+
 .btn {
   padding:10px 16px; border-radius:999px; border:2px solid var(--stroke);
   background:rgba(255,255,255,.02); color:var(--text); font-weight:600;
