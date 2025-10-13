@@ -21,8 +21,8 @@ const CONFIG = {
   // Formspree config (only used if TRANSPORT === 'formspree')
   FORMSPREE_ENDPOINT: 'https://formspree.io/f/YOUR_ID', // replace with your form ID
 
-  // mailto config (used if TRANSPORT === 'mailto')
-  MAILTO_TO: 'contact@tailoredbonds.com', // where you want to receive emails
+
+  MAILTO_TO: 'contact@tailoredbonds.com', 
 };
 
 // ---------- helpers ----------

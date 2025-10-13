@@ -520,3 +520,82 @@ footer a:hover {
         max-width: 1400px;
     }
 }
+
+/* =========================================================
+   PATCH — 1XLR8 Section Alignment & Link Contrast
+   ========================================================= */
+
+/* Match card widths & spacing of existing panels */
+#technology .grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+/* Card styling aligned with your .panel visuals */
+#technology .grid-2 > div {
+  background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+#technology .grid-2 > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.35);
+}
+
+/* Section text hierarchy */
+#technology h2 {
+  color: var(--white);
+  font-size: clamp(22px, 3vw, 30px);
+  margin-bottom: 14px;
+}
+#technology h3 {
+  color: var(--brand-2);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+#technology p, #technology ul, #technology li {
+  color: var(--off-white);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+#technology ul { margin: 8px 0 14px 20px; }
+
+/* Buttons inside tech section */
+#technology .btn { margin-top: 14px; }
+
+/* === Hyperlink contrast fix (hero + dark panels) === */
+.link {
+  color: #b693ff;                    /* bright lavender for visibility */
+  text-decoration: none;
+  border-bottom: 1px solid rgba(182,147,255,0.3);
+  transition: color .25s ease, border-color .25s ease;
+}
+.hero a:hover, #technology a:hover {
+  color: var(--brand);
+  border-bottom-color: rgba(231,180,75,0.6);
+}
+
+
+#technology .grid-2{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 columns, always */
+  gap:24px;
+  margin-top:32px;
+  align-items:stretch;            /* stretch cells to same row height */
+}
+
+@media (max-width: 980px){
+  #technology .grid-2{ grid-template-columns: 1fr; }  /* stack on mobile */
+}
+
+/* Make each card fill its grid cell cleanly */
+#technology .grid-2 > div{
+  display:flex; 
+  flex-direction:column;
+  height:100%;
+}

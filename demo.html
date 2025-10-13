@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bond Idea Evaluator — Tailored Bonds 1XLR8 Console</title>
+  <meta name="description" content="Explore Tailored Bonds' AI bond structuring engine 1XLR8 — analyze, simulate, and refine real-world asset-backed bond concepts in real time.">
+  <link rel="stylesheet" href="css/demo.css">
+  <link rel="stylesheet" href="css/navBar.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+    <div class="container">
+        <div class="logo">
+            <a href="index.html">Tailored Bonds</a>
+            <div class="subtitle">AI-Engineered • Buyer-First • On-Chain</div>
+        </div>
+        
+        <div class="nav-menu-wrapper"></div>
+            <ul class="nav-menu-left">
+                <li><a href="solutions.html">Solutions</a></li>
+                <li><a href="who-we-serve.html">Who We Serve</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+            <ul class="nav-menu-right">
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact-meeting.html" class="btn gold">Book a Call</a></li>
+            </ul>
+        </div>
+         <button class="hamburger" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </div>
+</nav>
+
+<!-- ================= HERO / INTRO ================= -->
+<header class="hero terminal-hero">
+  <div class="globe-overlay">
+    <h1>1XLR8 Bond Help and Structurer</h1>
+    <p class="lead">
+      Interact directly with <strong>Tailored Bonds’ AI Structuring Engine</strong> —  
+      explore new issuance ideas, generate proposals, and simulate investor-ready scenarios.
+    </p>
+  </div>
+</header>
+
+<!-- ================= TERMINAL CHAT INTERFACE ================= -->
+<main class="terminal-container">
+  <div class="terminal-inner">
+    <h2 class="terminal-title">💼 Generic Financial Conversation</h2>
+    <div id="finance-chat-box" class="chat-box"></div>
+    <div class="input-row">
+    <textarea id="finance-input" rows="1" placeholder="Ask about markets, yields, or structuring trends..."></textarea>
+    <button onclick="sendFinance()">Send</button>
+    </div>
+
+    <hr class="terminal-divider">
+
+<div class="guide-trigger">
+  <button id="openGuideBtn" class="btn-guide">💡 How to Use 1XLR8</button>
+</div>
+
+<!-- Modal -->
+<div id="bondGuideModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeGuideBtn">&times;</span>
+    <h2>💡 How to Use the 1XLR8 Bond Structuring Assistant</h2>
+    <p>
+      1XLR8 is Tailored Bonds’ <strong>AI Structuring Engine</strong> — trained on decades of bond data, 
+      SEC filings, and placement structures. It helps you design realistic, investor-ready bond proposals 
+      from simple project ideas.
+    </p>
+
+    <ul>
+      <li><strong>Start Simple:</strong> “We have 30 oil wells in Angola.”</li>
+      <li><strong>Ask for Scenarios:</strong> “Show 3 bond structures with different coupons and tenors.”</li>
+      <li><strong>Iterate:</strong> “Now make it suitable for European ESG investors.”</li>
+      <li><strong>Refine:</strong> “Add reserve accounts and covenants.”</li>
+      <li><strong>Paste Data:</strong> You can input real project summaries or PPM sections — 
+          1XLR8 will extract facts and tell you what’s missing.</li>
+    </ul>
+
+    <p class="note">⚠️ All outputs are for research and scenario analysis — not investment advice.</p>
+
+    <div class="modal-footer">
+      <button id="closeGuideBtn2" class="btn-guide">Got it</button>
+    </div>
+  </div>
+</div>
+
+    <h2 class="terminal-title">🏦 Bond Structuring Assistant (1XLR8 Engine)</h2>
+    <div id="bond-chat-box" class="chat-box"></div>
+    <div class="input-row">
+    <textarea id="bond-input" rows="1" placeholder="Describe your project or bond idea..."></textarea>
+    <button onclick="sendBond()">Send</button>
+    </div>
+
+    <p class="tiny terminal-note"> AI output is for research and scenario analysis only, it is not investment advice.</p>
+  </div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <p>© 2025 Tailored Bonds. All rights reserved. | <a href="terms.html">Terms of Service</a> | <a href="privacy.html">Privacy Policy</a></p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script type="module" src="js/navBar.js"></script>
+<script src="js/demo.js"></script>
+
+<script>
+document.querySelectorAll("textarea").forEach(el => {
+  el.addEventListener("input", () => {
+    el.style.height = "auto";                // reset height
+    el.style.height = Math.min(el.scrollHeight, 200) + "px"; // expand up to max
+  });
+});
+</script>
+
+</body>
+</html>

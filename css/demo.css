@@ -1,0 +1,416 @@
+:root {
+  --black:#000; --off-white:#e0e0e0; --white:#fff; --light-grey:#dadada;
+  --bg:#0b1220; --bg-soft:#0f1a30; --text:#e8ecf3; --muted:#ffffff;
+  --brand:#e7b44b; --brand-2:#5cc8ff; --stroke:rgba(255,255,255,.08);
+  --shadow:0 10px 30px rgba(0,0,0,.35); --radius:16px;
+}
+
+
+
+* { box-sizing: border-box; }
+html { background: var(--bg); scroll-padding-top: 55px; }
+html, body { height: 100%; }
+body {
+  margin: 0; color: var(--text);
+  font-family: 'Lato', sans-serif;
+  line-height: 1.35;
+  min-height: 100dvh;
+  padding-top: 55px;        
+  position: relative;               
+}
+
+body::before {
+  content:"";
+  position: fixed; inset: 0; z-index: -1; pointer-events:none;
+  background:
+    radial-gradient(1200px 800px at 80% -10%, rgba(231,180,75,.15), transparent 60%),
+    radial-gradient(900px 700px at -10% 10%, rgba(92,200,255,.12), transparent 60%),
+    var(--bg);
+  background-repeat:no-repeat;
+  will-change: transform;
+  transform: translateZ(0);
+}
+.terminal-hero {
+
+  text-align: center;
+  padding: 80px 20px 60px;
+  color: #00ff7f;
+  text-shadow: 0 0 8px #00ff7f;
+  margin-top: 0px;
+}
+
+.terminal-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px 80px;
+}
+
+.terminal-inner {
+  width: 100%;
+  max-width: 960px;
+  background: #010f05;
+  border: 2px solid #004d1a;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0,255,100,0.15);
+  padding: 30px 40px;
+}
+
+.terminal-title {
+  color: #00ff7f;
+  text-shadow: 0 0 10px #00ff7f;
+  text-align: center;
+}
+
+.terminal-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #00ff7f66, transparent);
+  margin: 40px 0;
+}
+
+.chat-box {
+  max-height: 75vh;           /* prevent runaway growth */
+  min-height: 160px;
+  overflow-y: auto;
+  background: #001909;
+  border: 1px solid #004d1a;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 15px;
+  color: #00ff7f;
+  line-height: 1.45;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  background-color: #000;
+  color: #00ff7f;
+  border: 1px solid #004d1a;
+  border-radius: 6px;
+  padding: 10px;
+  outline: none;
+}
+
+button {
+  background-color: #003d18;
+  color: #00ff7f;
+  border: 1px solid #00ff7f;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00ff7f;
+  color: #000;
+}
+/* =========================================================
+   FOOTER — Align with Tailored Bonds Main Site
+   ========================================================= */
+footer {
+  background: var(--black);
+  color: var(--off-white);
+  text-align: center;
+  padding: 25px 40px;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+footer a {
+  color: var(--brand);
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+footer a:hover {
+  color: #ffd98a;
+  text-shadow: 0 0 5px rgba(231,180,75,0.4);
+}
+
+footer p {
+  margin: 0;
+  font-weight: 400;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN — TABLET & MOBILE ADAPTATION
+   ========================================================= */
+
+/* Tablets (portrait/landscape up to 1024px) */
+@media (max-width: 1024px) {
+  .terminal-inner {
+    max-width: 90%;
+    padding: 24px 28px;
+  }
+
+  .chat-box {
+    height: 260px;
+    font-size: 14px;
+  }
+
+  input, button {
+    font-size: 14px;
+    padding: 9px 14px;
+  }
+
+  footer {
+    font-size: 0.8rem;
+    padding: 24px;
+  }
+}
+
+/* Phones (up to 600px) */
+@media (max-width: 600px) {
+  .terminal-hero {
+    padding: 60px 16px 40px;
+    font-size: 0.9rem;
+  }
+
+  .terminal-inner {
+    padding: 20px;
+    border-width: 1px;
+  }
+
+  .terminal-title {
+    font-size: 1.05rem;
+  }
+
+  .chat-box {
+    height: 220px;
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .input-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  input, button {
+    width: 100%;
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  button {
+    border-radius: 4px;
+  }
+
+  footer {
+    padding: 20px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Extra small (≤400px) */
+@media (max-width: 400px) {
+  .terminal-inner {
+    padding: 16px;
+  }
+
+  .chat-box {
+    height: 200px;
+  }
+
+  footer {
+    font-size: 0.7rem;
+  }
+}
+
+.message {
+  margin: 8px 0;
+  line-height: 1.45;
+}
+
+.message.user {
+  color: #39ff14;
+  font-weight: 500;
+  text-shadow: 0 0 6px #39ff14;
+}
+
+.message.assistant {
+  color: #00ff7f;
+}
+
+.message .label {
+  font-weight: bold;
+  color: #00ff99;
+}
+
+/* Markdown support inside AI responses */
+.message.assistant strong { color: #33ff99; font-weight: 700; }
+.message.assistant em { color: #66ffaa; font-style: italic; }
+.message.assistant ul { margin: 6px 0 6px 20px; list-style: square; }
+.message.assistant table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  border: 1px solid #004d1a;
+}
+.message.assistant th, .message.assistant td {
+  border: 1px solid #004d1a;
+  padding: 5px 8px;
+}
+.message.assistant th {
+  background: #002b12;
+  color: #00ff99;
+}
+.message.assistant a {
+  color: #33ff99;
+  text-decoration: underline;
+}
+.message.assistant a:hover {
+  color: #ccffcc;
+}
+
+.typing-indicator {
+  color: #00ff7f;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.95rem;
+  margin: 6px 0;
+  animation: pulse 1s infinite;
+  opacity: 0.8;
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.input-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+textarea {
+  flex: 1;
+  resize: none;
+  background-color: #000;
+  color: #00ff7f;
+  border: 1px solid #004d1a;
+  border-radius: 6px;
+  padding: 10px;
+  min-height: 38px;
+  max-height: 200px;
+  font-family: 'Share Tech Mono', monospace;
+  line-height: 1.4;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+textarea:focus {
+  border-color: #00ff7f;
+  box-shadow: 0 0 8px #00ff7f33;
+}
+
+button {
+  background-color: #003d18;
+  color: #00ff7f;
+  border: 1px solid #00ff7f;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+button:hover {
+  background-color: #00ff7f;
+  color: #000;
+}
+
+
+/* =========================================================
+   Modal — 1XLR8 User Guide
+   ========================================================= */
+.btn-guide {
+  background: transparent;
+  color: #00ff7f;
+  border: 1px solid #00ff7f;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+.btn-guide:hover {
+  background: #00ff7f;
+  color: #000;
+}
+
+.modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background: #001808;
+  margin: 8% auto;
+  padding: 30px 40px;
+  border: 1px solid #00ff7f55;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 720px;
+  color: #00ff7f;
+  box-shadow: 0 0 20px rgba(0,255,127,0.2);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #00ff7f;
+  text-shadow: 0 0 8px #00ff7f;
+}
+
+.modal-content ul {
+  list-style-type: square;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.modal-content li {
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+.modal-content strong {
+  color: #33ff99;
+}
+
+.modal-content .note {
+  font-size: 0.9rem;
+  color: #55ffbb;
+  margin-top: 16px;
+}
+
+.close-btn {
+  float: right;
+  font-size: 1.5rem;
+  color: #00ff7f;
+  cursor: pointer;
+  transition: color .3s ease;
+}
+.close-btn:hover { color: #33ff99; }
+
+.modal-footer {
+  margin-top: 20px;
+  text-align: right;
+}
